@@ -1,0 +1,12 @@
+2025-04-10 17:16:25,047 - INFO - Data loaded successfully from data/Admission.csv
+2025-04-10 17:16:25,054 - INFO - Data preprocessed and split successfully.
+2025-04-10 17:16:25,121 - INFO - Neural network model built and compiled successfully.
+2025-04-10 17:16:29,596 - INFO - Model training completed.
+2025-04-10 17:16:29,755 - INFO - Evaluation complete. Accuracy: 0.8500
+2025-04-10 17:19:42,321 - ERROR - Failed to load data from data/UCLA_admission_data.csv: [Errno 2] No such file or directory: 'data/UCLA_admission_data.csv'
+2025-04-10 17:19:42,322 - ERROR - Unhandled error in main(): [Errno 2] No such file or directory: 'data/UCLA_admission_data.csv'
+2025-04-10 17:21:06,891 - INFO - Data loaded successfully from data/Admission.csv
+2025-04-10 17:21:06,901 - INFO - Data preprocessed and split successfully.
+2025-04-10 17:21:06,977 - INFO - Neural network model built and compiled successfully.
+2025-04-10 17:21:11,405 - INFO - Model training completed.
+2025-04-10 17:21:11,564 - INFO - Evaluation complete. Accuracy: 0.8500
