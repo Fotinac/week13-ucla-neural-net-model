@@ -1,3 +1,6 @@
+## Live App
+[Click to open the app](https://week13-ucla-neural-net-model-elfrs4ibngggsr9hwdt23f.streamlit.app)
+
 
 # UCLA Admission Neural Network Classifier
 
