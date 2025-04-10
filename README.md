@@ -7,13 +7,6 @@
 This project is part of **CST2216: Individual Term Project** at Algonquin College (Week 13).  
 It builds and deploys a modular neural network pipeline to predict graduate admission chances at UCLA based on test scores, GPA, and recommendation strength.
 
----
-
-## Live App
-
-[Streamlit app link coming after deployment]
-
----
 
 ## Project Features
 
