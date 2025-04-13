@@ -1,6 +1,6 @@
 
 ## Live App  
-[Click to open the app] (https://week13-ucla-neural-net-model-29mmsfggb6hxyahz4z9ya7.streamlit.app)
+[Click to open the app](https://week13-ucla-neural-net-model-29mmsfggb6hxyahz4z9ya7.streamlit.app)
 
 ---
 
