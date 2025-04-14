@@ -1,24 +1,18 @@
+
 import matplotlib.pyplot as plt
+from utils.logger import get_logger
 
-def plot_training_history(history):
-    """
-    Plot training loss and accuracy curves from Keras model training history.
-    """
-    fig, axs = plt.subplots(1, 2, figsize=(12, 4))
+logger = get_logger(__name__)
 
-    # Plot accuracy
-    axs[0].plot(history.history['accuracy'], label='Accuracy')
-    axs[0].set_title('Training Accuracy')
-    axs[0].set_xlabel('Epoch')
-    axs[0].set_ylabel('Accuracy')
-    axs[0].legend()
-
-    # Plot loss
-    axs[1].plot(history.history['loss'], label='Loss', color='orange')
-    axs[1].set_title('Training Loss')
-    axs[1].set_xlabel('Epoch')
-    axs[1].set_ylabel('Loss')
-    axs[1].legend()
-
-    fig.tight_layout()
-    return fig
+def plot_feature_importance(importances, feature_names, output_path):
+    try:
+        plt.figure(figsize=(10, 6))
+        plt.barh(feature_names, importances)
+        plt.xlabel("Importance")
+        plt.title("Feature Importances")
+        plt.savefig(output_path)
+        logger.info(f"Feature importance plot saved to {output_path}")
+        plt.close()
+    except Exception as e:
+        logger.error(f"Error creating feature importance plot: {e}")
+        raise e

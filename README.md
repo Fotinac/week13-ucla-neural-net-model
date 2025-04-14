@@ -1,70 +1,103 @@
+# UCLA Neural Network Admission Predictor
 
-## Live App  
-[Click to open the app](https://week13-ucla-neural-net-model-29mmsfggb6hxyahz4z9ya7.streamlit.app)
+This application uses a trained neural network to predict graduate admission chances based on a candidate’s profile. Built with **Streamlit** and deployed on the **Streamlit Community Cloud**, the app offers real-time predictions through a simple user interface.
 
----
-
-# UCLA Admission Neural Network Classifier
-
-This project was developed as part of **CST2216: Individual Term Project** at Algonquin College (Week 13).  
-It builds and deploys a modular neural network pipeline that predicts graduate admission chances at UCLA based on standardized test scores, GPA, and recommendation strength.
+[Visit the app here](https://your-deployment-link.streamlit.app/)  
+**Note:** Replace this link with your actual Streamlit Cloud deployment link.
 
 ---
 
-## Project Features
+## Purpose
 
-- Modularized codebase using custom Python scripts
-- Data loading and preprocessing for binary classification
-- Two-layer neural network built with TensorFlow/Keras
-- Model evaluation via accuracy, classification report, and confusion matrix
-- Training accuracy and loss visualization
-- Deployed as an interactive Streamlit web app
+This project aims to help students evaluate their chances of admission to graduate programs based on features like GRE, TOEFL, CGPA, and university rating using a machine learning model trained on the *Admission.csv* dataset.
 
 ---
 
-## 📁 Folder Structure
+## Features
 
-```
-week13_ucla_neural_net_model/
-├── app.py                  ← Streamlit app interface
-├── main.py                 ← Script to run the full pipeline
-├── requirements.txt        ← Python dependencies
-├── README.md               ← Project documentation
-├── data/                   ← Input dataset (Admission.csv)
-├── logs/                   ← Log files (e.g., app.log)
-├── models/                 ← Trained model (admission_model.h5)
-├── utils/                  ← Data loaders, preprocessing, evaluation, plotting
-```
+- Intuitive web UI powered by **Streamlit**.
+- Interactive form for user input (GRE, TOEFL, CGPA, etc.).
+- Neural network–based model predicts admission probability.
+- Visual output and feature importance graph.
+- Logging and error-handling implemented for robustness.
+- Ready for cloud deployment via Streamlit Community Cloud.
 
 ---
 
-## 💻 Run Locally
+## Dataset
+
+The dataset used is `Admission.csv`, containing historical student admission profiles and outcomes. Features include:
+
+- GRE Score  
+- TOEFL Score  
+- University Rating  
+- Statement of Purpose (SOP)  
+- Letter of Recommendation (LOR)  
+- CGPA  
+- Research Experience  
+- Chance of Admit
+
+---
+
+## Technologies Used
+
+- **Python**
+- **Streamlit** – UI and deployment  
+- **TensorFlow/Keras** – Neural network modeling  
+- **Pandas & NumPy** – Data preprocessing  
+- **Matplotlib** – Visualizations  
+- **Scikit-learn** – Data splitting and metrics  
+- **Logging** – Centralized logs for debugging  
+- **VS Code & GitHub** – Development and version control
+
+---
+
+## Model
+
+A feedforward neural network is trained to predict the probability of admission. It uses scaled inputs and evaluates performance on a test set. The model is saved as `admission_model.h5`.
+
+---
+
+## Installation & Setup (Local Deployment)
+
+Follow the steps below to run the project locally:
 
 1. **Clone the repository:**
-```bash
-git clone https://github.com/Fotinac/week13-ucla-neural-net-model.git
-cd week13-ucla-neural-net-model
-```
+   ```bash
+   git clone https://github.com/your-username/ucla-admission-predictor.git
+   cd ucla-admission-predictor
+   ```
 
-2. **Install dependencies:**
-```bash
-pip install -r requirements.txt
-```
+2. **Create and activate a virtual environment:**
+   ```bash
+   python -m venv env
+   source env/bin/activate  # On Windows: env\Scripts\activate
+   ```
 
-3. **Launch the Streamlit app:**
-```bash
-streamlit run app.py
-```
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the app:**
+   ```bash
+   streamlit run app.py
+   ```
 
 ---
 
-## Dependencies
+## Logging
 
-- `streamlit`
-- `tensorflow`
-- `pandas`
-- `scikit-learn`
-- `matplotlib`
+Application logs are stored in `logs/app.log`. All modules use a centralized logger from `utils/logger.py` for debugging and tracking execution flow.
+
+---
+
+## Future Enhancements
+
+- Add model explainability using SHAP or LIME.
+- Compare multiple model types.
+- Enable batch uploads for multiple predictions.
+- Display more advanced visualizations.
 
 ---
 

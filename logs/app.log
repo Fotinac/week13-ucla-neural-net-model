@@ -25,3 +25,8 @@
 2025-04-13 16:09:04,101 - INFO - Neural network model built and compiled successfully.
 2025-04-13 16:09:09,463 - INFO - Model training completed.
 2025-04-13 16:09:09,652 - INFO - Evaluation complete. Accuracy: 0.8500
+2025-04-13 22:23:20,155 — __main__ — INFO — Application started.
+2025-04-13 22:23:20,191 — utils.data_loader — INFO — Data loaded successfully from data/Admission.csv. Shape: (500, 9)
+2025-04-13 22:23:20,194 — utils.preprocessing — INFO — Preprocessed data. Original shape: (500, 9), New shape: (500, 9)
+2025-04-13 22:23:20,202 — train_and_save_model — ERROR — Failed to train and save model: "['Chance of Admit '] not found in axis"
+2025-04-13 22:23:20,203 — __main__ — ERROR — Application failed with error: "['Chance of Admit '] not found in axis"

@@ -1,39 +1,28 @@
+
+from utils.logger import get_logger
+from utils.data_loader import load_data
+from utils.preprocessing import preprocess_data
+from models.neural_net_model import build_model
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-from tensorflow.keras.optimizers import Adam
-import os
 
-# Load dataset
-df = pd.read_csv("data/Admission.csv")
-df = df.drop(columns=["Serial_No"])  # Drop ID column if present
+logger = get_logger(__name__)
 
-X = df.drop(columns=["Admit_Chance"])
-y = df["Admit_Chance"]
+def train_and_save_model():
+    try:
+        df = load_data("data/Admission.csv")
+        df_clean = preprocess_data(df)
 
-# Scale features
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
+        X = df_clean.drop("Chance of Admit ", axis=1)
+        y = df_clean["Chance of Admit "]
 
-# Train-test split
-X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+        from sklearn.model_selection import train_test_split
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Build model
-model = Sequential()
-model.add(Dense(64, activation='relu', input_shape=(X_train.shape[1],)))
-model.add(Dense(32, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))  # For probabilities
+        model = build_model(input_shape=X_train.shape[1])
+        model.fit(X_train, y_train, epochs=50, batch_size=10, verbose=0)
 
-model.compile(optimizer=Adam(learning_rate=0.001),
-              loss='binary_crossentropy',
-              metrics=['accuracy'])
-
-# Train model
-model.fit(X_train, y_train, epochs=50, batch_size=32, verbose=1)
-
-# Save model
-os.makedirs("models", exist_ok=True)
-model.save("models/admission_model.h5")
-print("Model trained and saved to models/admission_model.h5")
+        model.save("models/admission_model.h5")
+        logger.info("Model trained and saved successfully.")
+    except Exception as e:
+        logger.error(f"Failed to train and save model: {e}")
+        raise e

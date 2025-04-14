@@ -1,20 +1,20 @@
+
 import pandas as pd
-import logging
+from utils.logger import get_logger
 
-def load_data(filepath):
-    """
-    Load dataset from a CSV file.
+logger = get_logger(__name__)
 
-    Args:
-        filepath (str): Path to the CSV file
-
-    Returns:
-        pd.DataFrame: Loaded data
-    """
+def load_data(file_path: str) -> pd.DataFrame:
     try:
-        df = pd.read_csv(filepath)
-        logging.info(f"Data loaded successfully from {filepath}")
+        df = pd.read_csv(file_path)
+        logger.info(f"Data loaded successfully from {file_path}. Shape: {df.shape}")
         return df
+    except FileNotFoundError as e:
+        logger.error(f"File not found: {file_path}")
+        raise e
+    except pd.errors.ParserError as e:
+        logger.error(f"Parsing error for file: {file_path}")
+        raise e
     except Exception as e:
-        logging.error(f"Failed to load data from {filepath}: {e}")
-        raise
+        logger.error(f"Unexpected error in load_data: {e}")
+        raise e
