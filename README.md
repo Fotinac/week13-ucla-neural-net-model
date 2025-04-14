@@ -2,7 +2,7 @@
 
 This application uses a trained neural network to predict graduate admission chances based on a candidate’s profile. Built with **Streamlit** and deployed on the **Streamlit Community Cloud**, the app offers real-time predictions through a simple user interface.
 
-[Visit the app here](https://your-deployment-link.streamlit.app/)  
+[Visit the app here](https://week13-ucla-neural-net-model-29mmsfggb6hxyahz4z9ya7.streamlit.app)  
 **Note:** Replace this link with your actual Streamlit Cloud deployment link.
 
 ---
